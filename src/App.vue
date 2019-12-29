@@ -1,54 +1,57 @@
 <template>
   <div id="app">
     <div id="user-info">
-      <button @click="toggleUserInfo">{{ showUserInfo ? 'hide' : 'show'}} User Details</button>
+      <button @click="toggleUserInfo">{{ showUserInfo ? 'hide' : 'show' }} User Details</button>
       <p v-if="showUserInfo">You're logged in!</p>
     </div>
     <ProductForm :createProduct="createProduct" />
     <Products :items="products" :remove="deleteProduct" />
-
   </div>
 </template>
 
 <script>
-import ProductForm from "./components/ProductForm.vue";
-import Products from "./components/Producets";
+import ProductForm from './components/ProductForm.vue'
+import Products from './components/Producets'
+import { ref } from '@vue/composition-api'
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     ProductForm,
-    Products
+    Products,
   },
-  data() {
-    return {
-      products: [],
-      showUserInfo: false
-    };
-  },
-  methods: {
-    createProduct(title, price) {
+  setup() {
+    // 宣告響應式變數：使用 ref
+    const products = ref([])
+    const showUserInfo = ref(false)
+
+    // 宣告 function
+    const createProduct = (title, price) => {
       const newProduct = {
         id: Math.random(),
-        title: title,
-        price
-      };
-
-      this.products.push(newProduct);
-    },
-    deleteProduct(productId) {
-      this.products = this.products.filter(p => p.id !== productId);
-    },
-    toggleUserInfo() {
-      this.showUserInfo = !this.showUserInfo;
+        title,
+        price,
+      }
+      products.value.push(newProduct)
     }
-  }
-};
+
+    const deleteProduct = productId => {
+      products.value = products.value.filter(p => p.id !== productId)
+    }
+
+    const toggleUserInfo = () => {
+      // 編輯響應式變數, 使用 ref 宣告的需要使用 .value
+      showUserInfo.value = !showUserInfo.value
+    }
+
+    return { products, showUserInfo, createProduct, deleteProduct, toggleUserInfo }
+  },
+}
 </script>
 
 <style lang="scss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
