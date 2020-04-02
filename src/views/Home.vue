@@ -1,19 +1,23 @@
 <template>
-  <div id="app">
-    <header>
-      <router-link to="/" class="link">Home</router-link>
-      <router-link to="/form" class="link">Form</router-link>
-    </header>
+  <div>
+    <div id="user-info">
+      <button @click="toggleUserInfo">{{ showUserInfo ? 'hide' : 'show' }} User Details</button>
+      <p v-if="showUserInfo">You're logged in!</p>
+    </div>
+    <ProductForm :createProduct="createProduct" />
+    <Products :items="products" :remove="deleteProduct" />
+    滑鼠x: {{mouseX}}<br>
+    滑鼠y: {{mouseY}}
     <router-view />
   </div>
 </template>
 
 <script>
-import ProductForm from "./components/ProductForm.vue";
-import Products from "./components/Producets";
+import ProductForm from "@/components/ProductForm.vue";
+import Products from "@/components/Producets";
 import { ref } from "@vue/composition-api";
-import { useToggle } from "./cmp-functions/toggle";
-import { useMousePosition } from "./cmp-functions/mousePosition";
+import { useToggle } from "@/cmp-functions/toggle";
+import { useMousePosition } from "@/cmp-functions/mousePosition";
 
 export default {
   name: "app",
@@ -61,46 +65,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-header {
-  padding: 12px 20px;
-  margin-bottom: 20px;
-}
-
-.link {
-  padding: 12px;
-  color: #2c3e50;
-  text-decoration: none;
-}
-
-.link.router-link-exact-active {
-  font-weight: bold;
-}
-
-button {
-  padding: 12px 30px;
-  background-color: #2c3e50;
-  color: #fff;
-  font-size: 20px;
-  outline: none;
-  cursor: pointer;
-}
-
-label {
-  padding-right: 15px;
-}
-
-input {
-  padding: 6px 10px;
-  outline: none;
-  font-size: 16px;
-}
-</style>
+<style lang="scss"></style>

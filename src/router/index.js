@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from '../App.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +7,12 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: App,
+    component: () => import(/* webpackChunkName: "Home" */ '@/views/Home'),
+  },
+  {
+    path: '/form',
+    name: 'AppForm',
+    component: () => import(/* webpackChunkName: "AppForm" */ '@/views/AppForm'),
   },
 ]
 

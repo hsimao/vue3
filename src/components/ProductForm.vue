@@ -13,64 +13,64 @@
 </template>
 
 <script>
-import { ref, reactive, watch, computed } from '@vue/composition-api'
+import { ref, reactive, watch, computed } from "@vue/composition-api";
 
 export default {
-  name: 'ProductForm',
+  name: "ProductForm",
   props: {
     createProduct: {
       type: Function,
-      required: true,
-    },
+      required: true
+    }
   },
   setup(props) {
     // 使用 reactive 宣告響應物件
     const inputState = reactive({
-      title: '',
-      price: '',
-    })
+      title: "",
+      price: ""
+    });
 
     // 使用 ref 宣告響應布林值
-    const submitted = ref(false)
+    const submitted = ref(false);
 
     const saveProduct = event => {
-      event.preventDefault()
-      props.createProduct(inputState.title, priceAsNumber.value)
-      submitted.value = true
-    }
+      event.preventDefault();
+      props.createProduct(inputState.title, priceAsNumber.value);
+      submitted.value = true;
+    };
 
     // computed
     // 需注意, 使用 computed 宣告出來的變數取值時需要使用 .value
     const priceAsNumber = computed(() => {
-      return parseFloat(inputState.price)
-    })
+      return parseFloat(inputState.price);
+    });
 
     const isValid = computed(() => {
-      let isValid = true
+      let isValid = true;
 
       if (inputState.title.trim().length === 0) {
-        isValid = false
+        isValid = false;
       }
 
       if (isNaN(priceAsNumber.value) || priceAsNumber.value <= 0) {
-        isValid = false
+        isValid = false;
       }
-      return isValid
-    })
+      return isValid;
+    });
 
     // watch
     watch(() => {
       // 監聽 submitted
       if (submitted.value) {
-        inputState.title = ''
-        inputState.price = ''
-        submitted.value = false
+        inputState.title = "";
+        inputState.price = "";
+        submitted.value = false;
       }
-    })
+    });
 
-    return { inputState, saveProduct, isValid }
-  },
-}
+    return { inputState, saveProduct, isValid };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -84,16 +84,6 @@ export default {
 
 .form-control {
   padding: 10px;
-
-  label {
-    padding-right: 15px;
-  }
-
-  input {
-    padding: 6px 10px;
-    outline: none;
-    font-size: 16px;
-  }
 }
 
 button {
