@@ -14,6 +14,16 @@ const routes = [
     name: 'AppForm',
     component: () => import(/* webpackChunkName: "AppForm" */ '@/views/AppForm'),
   },
+  {
+    path: '/demo',
+    name: 'Demo',
+    component: () => import(/* webpackChunkName: "Demo" */ '@/views/Demo'),
+  },
+  {
+    path: '/reactive',
+    name: 'Reactive',
+    component: () => import(/* webpackChunkName: "Demo" */ '@/views/Reactive'),
+  },
 ]
 
 const router = new VueRouter({

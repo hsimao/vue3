@@ -3,7 +3,10 @@
     <header>
       <router-link to="/" class="link">Home</router-link>
       <router-link to="/form" class="link">Form</router-link>
+      <router-link to="/demo" class="link">Demo</router-link>
+      <router-link to="/reactive" class="link">Reactive</router-link>
     </header>
+
     <router-view />
   </div>
 </template>
