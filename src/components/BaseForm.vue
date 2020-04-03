@@ -3,11 +3,13 @@
     <form novalidate @submit.prevent="onSubmit">
       <BaseInput ref="refName"
         v-model="name"
+        :error.sync="nameError"
         label="Name"
         :validator="[minLength(3), required()]" />
 
       <BaseInput ref="refEmail"
         v-model="email"
+        :error.sync="emailError"
         label="Email"
         :validator="[isEmail(), required()]" />
 
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-import { ref } from "@vue/composition-api";
+import { reactive, toRefs } from "@vue/composition-api";
 import { minLength, isEmail, required } from "@/utils/validators";
 import BaseInput from "@/components/BaseInput";
 
@@ -27,32 +29,26 @@ export default {
     BaseInput
   },
   setup(props, { refs }) {
-    const name = ref("");
-    const email = ref("");
+    const formData = reactive({
+      name: "",
+      email: "",
+      nameError: false,
+      emailError: false
+    });
 
     const onSubmit = () => {
       if (
-        !email.value ||
-        !name.value ||
-        refs.refName.hasError ||
-        refs.refEmail.hasError
+        !formData.name ||
+        !formData.email ||
+        formData.nameError ||
+        formData.emailError
       ) {
       } else {
-        console.log("onSubmit", {
-          name: name.value,
-          email: email.value
-        });
+        console.log("onSubmit", formData);
       }
     };
 
-    return {
-      name,
-      email,
-      onSubmit,
-      minLength,
-      isEmail,
-      required
-    };
+    return { ...toRefs(formData), onSubmit, minLength, isEmail, required };
   }
 };
 </script>

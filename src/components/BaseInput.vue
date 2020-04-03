@@ -1,7 +1,8 @@
 <template>
   <div class="baseInput">
     <label>{{ label }}</label>
-    <input type="text" v-model="input" name="name">
+    <input type="text" v-model.trim="input" name="name">
+    error: {{error}}
     <ul v-if="errors.length > 0" class="errors">
       <li class="error" v-for="(error, index) in errors" :key="index">{{ error }}</li>
     </ul>
@@ -9,7 +10,6 @@
 </template>
 
 <script>
-import { watch, ref } from "@vue/composition-api";
 import useInputValidator from "@/cmp-functions/useInputValidator";
 
 export default {
@@ -26,27 +26,21 @@ export default {
     value: {
       type: [String, Number],
       default: ""
+    },
+    error: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, { emit }) {
-    const hasError = ref(false);
-
     const { input, errors } = useInputValidator(
       props.value,
       props.validator,
-      value => emit("input", value)
+      value => emit("input", value),
+      value => emit("update:error", value)
     );
 
-    // 監聽 error
-    watch(
-      errors,
-      value => {
-        hasError.value = value.some(error => error !== null);
-      }
-      // { lazy: true }
-    );
-
-    return { input, errors, hasError };
+    return { input, errors };
   }
 };
 </script>
