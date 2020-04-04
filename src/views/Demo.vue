@@ -15,6 +15,7 @@
 
 <script>
 import { ref, watch, computed } from "@vue/composition-api";
+import useEventSpace from "@/cmp-functions/useEventSpace";
 
 export default {
   name: "Demo",
@@ -40,23 +41,12 @@ export default {
 
     const title = ref("Mars");
 
-    const capacity = ref(4);
-    const capacityAdd = () => {
-      capacity.value++;
-    };
-
-    const attending = ref(["Mars", "Jack", "Sally"]);
-
-    const spacesLeft = computed(() => {
-      return capacity.value - attending.value.length;
-    });
-
     // 監聽 props
     watch(() => {
       console.log("watch", props.test);
     });
 
-    return { title, capacity, capacityAdd, attending, spacesLeft };
+    return { ...useEventSpace(), title };
   }
 };
 </script>

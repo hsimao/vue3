@@ -24,6 +24,11 @@ const routes = [
     name: 'Reactive',
     component: () => import(/* webpackChunkName: "Demo" */ '@/views/Reactive'),
   },
+  {
+    path: '/lifecycle',
+    name: 'Lifecycle',
+    component: () => import(/* webpackChunkName: "Lifecycle" */ '@/views/Lifecycle'),
+  },
 ]
 
 const router = new VueRouter({
