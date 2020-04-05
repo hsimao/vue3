@@ -34,6 +34,12 @@ const routes = [
     path: "/watch",
     name: "Watch",
     component: () => import(/* webpackChunkName: "Watch" */ "@/views/Watch")
+  },
+  {
+    path: "/api",
+    name: "ApiHandle",
+    component: () =>
+      import(/* webpackChunkName: "ApiHandle" */ "@/views/ApiHandle")
   }
 ];
 
