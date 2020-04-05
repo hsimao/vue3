@@ -6,6 +6,7 @@
       <router-link to="/demo" class="link">Demo</router-link>
       <router-link to="/reactive" class="link">Reactive</router-link>
       <router-link to="/lifecycle" class="link">Lifecycle</router-link>
+      <router-link to="/watch" class="link">Watch</router-link>
     </header>
     <router-view />
   </div>

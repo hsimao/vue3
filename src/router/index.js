@@ -29,6 +29,11 @@ const routes = [
     name: "Lifecycle",
     component: () =>
       import(/* webpackChunkName: "Lifecycle" */ "@/views/Lifecycle")
+  },
+  {
+    path: "/watch",
+    name: "Watch",
+    component: () => import(/* webpackChunkName: "Watch" */ "@/views/Watch")
   }
 ];
 
