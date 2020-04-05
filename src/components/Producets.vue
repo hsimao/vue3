@@ -9,25 +9,25 @@
 
 <script>
 export default {
-  name: 'products',
+  name: "products",
   props: {
     items: {
       type: Array,
-      required: true,
+      required: true
     },
     remove: {
       type: Function,
-      required: true,
-    },
+      required: true
+    }
   },
   setup(props) {
     const removeProduct = prodId => {
-      props.remove(prodId)
-    }
+      props.remove(prodId);
+    };
 
-    return { removeProduct }
-  },
-}
+    return { removeProduct };
+  }
+};
 </script>
 
 <style lang="scss" scoped>

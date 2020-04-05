@@ -7,7 +7,6 @@
       <li v-for="(attend,index) in attending" :key="index">{{ attend }}</li>
     </ul>
     <button @click="capacityAdd()">Capacity Add</button>
-
   </div>
 </template>
 
