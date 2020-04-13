@@ -8,6 +8,7 @@
       <router-link to="/lifecycle" class="link">Lifecycle</router-link>
       <router-link to="/watch" class="link">Watch</router-link>
       <router-link to="/api" class="link">API</router-link>
+      <router-link to="/apiVuex" class="link">API Vuex</router-link>
     </header>
     <router-view />
   </div>
