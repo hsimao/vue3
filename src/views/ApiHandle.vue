@@ -3,10 +3,12 @@
     <h1>API Handle</h1>
     <div>
       <label>Search for</label>
-      <input type="text"
+      <input
+        type="text"
         v-model.trim="search"
         @keyup.enter="handleSearch"
-        :disabled="loading">
+        :disabled="loading"
+      />
     </div>
     <div>
       <p>Loading: {{ loading }}</p>
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-import { ref, watch } from "@vue/composition-api";
+import { ref, watch } from "vue";
 import { getResult } from "@/utils/api";
 import usePromise from "@/cmp-functions/usePromise.js";
 
@@ -40,5 +42,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

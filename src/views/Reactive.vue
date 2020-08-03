@@ -4,14 +4,14 @@
 
     <h3>Spaces Left: {{ spacesLeft }} out of {{ capacity }}</h3>
     <ul>
-      <li v-for="(attend,index) in attending" :key="index">{{ attend }}</li>
+      <li v-for="(attend, index) in attending" :key="index">{{ attend }}</li>
     </ul>
     <button @click="capacityAdd()">Capacity Add</button>
   </div>
 </template>
 
 <script>
-import { reactive, computed, toRefs } from "@vue/composition-api";
+import { reactive, computed, toRefs } from "vue";
 
 export default {
   name: "Reactive",

@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from "@vue/composition-api";
+import { ref, onMounted, onUnmounted } from "vue";
 
 export const useMousePosition = () => {
   const x = ref(0);

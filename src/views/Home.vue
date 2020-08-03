@@ -1,13 +1,15 @@
 <template>
   <div>
     <div id="user-info">
-      <button @click="toggleUserInfo">{{ showUserInfo ? 'hide' : 'show' }} User Details</button>
+      <button @click="toggleUserInfo">
+        {{ showUserInfo ? "hide" : "show" }} User Details
+      </button>
       <p v-if="showUserInfo">You're logged in!</p>
     </div>
     <ProductForm :createProduct="createProduct" />
     <Products :items="products" :remove="deleteProduct" />
-    滑鼠x: {{mouseX}}<br>
-    滑鼠y: {{mouseY}}
+    滑鼠x: {{ mouseX }}<br />
+    滑鼠y: {{ mouseY }}
     <router-view />
   </div>
 </template>
@@ -15,7 +17,7 @@
 <script>
 import ProductForm from "@/components/ProductForm.vue";
 import Products from "@/components/Producets";
-import { ref } from "@vue/composition-api";
+import { ref } from "vue";
 import { useToggle } from "@/cmp-functions/toggle";
 import { useMousePosition } from "@/cmp-functions/mousePosition";
 

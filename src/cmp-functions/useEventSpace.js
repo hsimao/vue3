@@ -1,4 +1,4 @@
-import { ref, computed } from "@vue/composition-api";
+import { ref, computed } from "vue";
 
 export default function() {
   const capacity = ref(4);

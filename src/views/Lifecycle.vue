@@ -15,7 +15,7 @@ import {
   onActivated,
   onDeactivated,
   onErrorCaptured
-} from "@vue/composition-api";
+} from "vue";
 export default {
   name: "Lifecycle",
   setup() {
@@ -40,5 +40,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

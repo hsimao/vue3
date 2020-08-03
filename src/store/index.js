@@ -1,4 +1,3 @@
-import Vue from "vue";
 import Vuex from "vuex";
 import { getResult } from "@/utils/api";
 
@@ -17,9 +16,7 @@ function usePromiseVuex(apiFn) {
   };
 }
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default Vuex.createStore({
   state: {
     loading: false,
     error: false,

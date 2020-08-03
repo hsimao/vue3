@@ -6,14 +6,20 @@
     </div>
     <div class="form-control">
       <label for="price">Price</label>
-      <input type="number" min="0" id="price" step="0.01" v-model="inputState.price" />
+      <input
+        type="number"
+        min="0"
+        id="price"
+        step="0.01"
+        v-model="inputState.price"
+      />
     </div>
     <button type="submit" :disabled="!isValid">Save</button>
   </form>
 </template>
 
 <script>
-import { ref, reactive, watch, computed } from "@vue/composition-api";
+import { ref, reactive, watch, computed } from "vue";
 
 export default {
   name: "ProductForm",

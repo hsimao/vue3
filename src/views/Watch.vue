@@ -2,25 +2,25 @@
   <div>
     <h1>Watch</h1>
     <label>Serach：</label>
-    <input type="text" v-model="searchInput">
-    <br>
+    <input type="text" v-model="searchInput" />
+    <br />
     <label>Age：</label>
-    <input type="text" v-model="ageInput">
-    <br>
+    <input type="text" v-model="ageInput" />
+    <br />
     <label>Job：</label>
-    <input type="text" v-model="jobInput">
-    <br>
-    <br>
+    <input type="text" v-model="jobInput" />
+    <br />
+    <br />
     <label>First Name</label>
-    <input type="text" v-model="firstName">
-    <br>
+    <input type="text" v-model="firstName" />
+    <br />
     <label>Last Name</label>
-    <input type="text" v-model="lastName">
+    <input type="text" v-model="lastName" />
   </div>
 </template>
 
 <script>
-import { ref, watch } from "@vue/composition-api";
+import { ref, watch } from "vue";
 
 export default {
   name: "Watch",

@@ -1,20 +1,19 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <input type="text" v-model="title">
-    <hr>
+    <input type="text" v-model="title" />
+    <hr />
 
     <h3>Spaces Left: {{ spacesLeft }} out of {{ capacity }}</h3>
     <ul>
-      <li v-for="(attend,index) in attending" :key="index">{{ attend }}</li>
+      <li v-for="(attend, index) in attending" :key="index">{{ attend }}</li>
     </ul>
     <button @click="capacityAdd()">Capacity Add</button>
-
   </div>
 </template>
 
 <script>
-import { ref, watch, computed } from "@vue/composition-api";
+import { ref, watch, computed } from "vue";
 import useEventSpace from "@/cmp-functions/useEventSpace";
 
 export default {
@@ -51,5 +50,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

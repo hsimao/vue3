@@ -5,8 +5,8 @@
       @hook:beforeMount="loading = true"
       @hook:mounted="loading = false"
       @hook:beforeUpdate="loading = true"
-      @hook:updated="loading = false">
-
+      @hook:updated="loading = false"
+    >
       <!-- 具名插槽舊寫法 -->
       <!-- <template v-slot:header>header</template>
       <template v-slot:content>content</template> -->
@@ -14,19 +14,17 @@
       <!-- v2.6.0 以上的新寫法 -->
       <template #header>Header</template>
       <template #content>Content</template>
-
     </SlotComponent>
 
     <!-- 動態 attribute -->
-    <input type="text" v-model="attributeName">
+    <input type="text" v-model="attributeName" />
     <a :[attr]="attributeName">{{ attributeName }}</a>
-
   </div>
 </template>
 
 <script>
 import SlotComponent from "@/components/SlotComponent";
-import { ref, watch, onMounted, onUnmounted } from "@vue/composition-api";
+import { ref, watch, onMounted, onUnmounted } from "vue";
 
 export default {
   name: "Test",
@@ -73,5 +71,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

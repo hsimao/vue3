@@ -1,17 +1,21 @@
 <template>
   <div>
     <form novalidate @submit.prevent="onSubmit">
-      <BaseInput ref="refName"
+      <BaseInput
+        ref="refName"
         v-model="name"
         :error.sync="nameError"
         label="Name"
-        :validator="[minLength(3), required()]" />
+        :validator="[minLength(3), required()]"
+      />
 
-      <BaseInput ref="refEmail"
+      <BaseInput
+        ref="refEmail"
         v-model="email"
         :error.sync="emailError"
         label="Email"
-        :validator="[isEmail(), required()]" />
+        :validator="[isEmail(), required()]"
+      />
 
       <button type="submit">Submit</button>
     </form>
@@ -19,7 +23,7 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "@vue/composition-api";
+import { reactive, toRefs } from "vue";
 import { minLength, isEmail, required } from "@/utils/validators";
 import BaseInput from "@/components/BaseInput";
 

@@ -1,4 +1,4 @@
-import { ref, watch, computed } from "@vue/composition-api";
+import { ref, watch, computed } from "vue";
 
 export default function(startValue, validators, onInput, onError) {
   const input = ref(startValue);
