@@ -1,8 +1,10 @@
 <template>
   <div>
     <SalutationName
-      v-model:salutation="form.salutation"
-      v-model:name="form.name" />
+      v-model:salutation.capitalize="form.salutation"
+      v-model:name.capitalize="form.name"
+      v-model:desc.capitalize.reverse="form.desc"
+    />
 
     <pre>{{ form }}</pre>
   </div>
@@ -20,7 +22,8 @@ export default {
   setup() {
     const form = reactive({
       salutation: "",
-      name: ""
+      name: "",
+      desc: ""
     });
 
     return { form };
