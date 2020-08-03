@@ -48,6 +48,12 @@ const routes = [
       import(/* webpackChunkName: "ApiHandleVuex" */ "@/views/ApiHandleVuex")
   },
   {
+    path: "/model",
+    name: "Model",
+    component: () =>
+      import(/* webpackChunkName: "ApiHandleVuex" */ "@/views/Vmodel")
+  },
+  {
     path: "/test",
     name: "Test",
     component: () => import(/* webpackChunkName: "Text" */ "@/views/Test")

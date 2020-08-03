@@ -9,6 +9,9 @@
       <router-link to="/watch" class="link">Watch</router-link>
       <router-link to="/api" class="link">API</router-link>
       <router-link to="/apiVuex" class="link">API Vuex</router-link>
+      <br>
+      <router-link to="/model" class="link">V-Model</router-link>
+
     </header>
     <router-view />
   </div>
