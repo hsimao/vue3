@@ -1,7 +1,10 @@
 <template>
   <div>
-    <SalutationName v-model:salutation="form.salutation" />
+    <SalutationName
+      v-model:salutation="form.salutation"
+      v-model:name="form.name" />
 
+    <pre>{{ form }}</pre>
   </div>
 </template>
 
@@ -15,9 +18,9 @@ export default {
     SalutationName
   },
   setup() {
-    const from = reactive({
+    const form = reactive({
       salutation: "",
-      nanme: ""
+      name: ""
     });
 
     return { form };
@@ -25,5 +28,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
