@@ -1,10 +1,12 @@
 <template>
   <div class="baseInput">
     <label>{{ label }}</label>
-    <input type="text" v-model.trim="input" name="name">
-    error: {{error}}
+    <input v-bind="$attrs" v-model.trim="input" name="name" />
+    error: {{ error }}
     <ul v-if="errors.length > 0" class="errors">
-      <li class="error" v-for="(error, index) in errors" :key="index">{{ error }}</li>
+      <li class="error" v-for="(error, index) in errors" :key="index">
+        {{ error }}
+      </li>
     </ul>
   </div>
 </template>
@@ -13,6 +15,7 @@
 import useInputValidator from "@/cmp-functions/useInputValidator";
 
 export default {
+  inheritAttrs: false,
   name: "BaseInput",
   props: {
     label: {

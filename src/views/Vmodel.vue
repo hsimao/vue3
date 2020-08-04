@@ -4,6 +4,8 @@
       v-model:salutation.capitalize="form.salutation"
       v-model:name.capitalize="form.name"
       v-model:desc.capitalize.reverse="form.desc"
+      type="email"
+      class="thicc"
     />
 
     <pre>{{ form }}</pre>
