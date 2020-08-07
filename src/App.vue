@@ -12,6 +12,7 @@
       <br />
       <router-link to="/model" class="link">V-Model</router-link>
       <router-link to="/attrs" class="link">Attrs</router-link>
+      <router-link to="/teleport" class="link">Teleport</router-link>
     </header>
     <router-view />
   </div>
